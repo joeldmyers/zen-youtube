@@ -40,7 +40,7 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ["*", ".js", ".jsx", ".tsx"] },
+  resolve: { extensions: ["*", ".js", ".jsx", ".tsx", ".ts"] },
   output: {
     path: path.resolve(__dirname, "dist/"),
     publicPath: "/dist/",

@@ -1,21 +1,6 @@
 import React from "react";
 import VideoListItem from "../VideoListItem/VideoListItem";
-
-interface Video {
-  id: {
-    videoId: string;
-  };
-  etag: number;
-  snippet: {
-    title: string;
-    description: string;
-    thumbnails: {
-      default: {
-        url: string;
-      };
-    };
-  };
-}
+import { Video } from "../../../types/interfaces";
 
 interface IProps {
   videos: Video[];

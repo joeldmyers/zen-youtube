@@ -1,20 +1,5 @@
 import React from "react";
-
-interface Video {
-  id: {
-    videoId: string;
-  };
-  etag: number;
-  snippet: {
-    title: string;
-    description: string;
-    thumbnails: {
-      default: {
-        url: string;
-      };
-    };
-  };
-}
+import { Video } from "../../../types/interfaces";
 
 interface IProps {
   video: Video;

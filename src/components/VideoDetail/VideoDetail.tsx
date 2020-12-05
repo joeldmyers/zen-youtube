@@ -1,26 +1,11 @@
-import React from "react";
-
-interface Video {
-  id: {
-    videoId: string;
-  };
-  etag: number;
-  snippet: {
-    title: string;
-    description: string;
-    thumbnails: {
-      default: {
-        url: string;
-      };
-    };
-  };
-}
+import React, { FunctionComponent } from "react";
+import { Video } from "../../../types/interfaces";
 
 interface IProps {
   video: Video;
 }
 
-const VideoDetail: React.FC<IProps> = (props: IProps) => {
+const VideoDetail: FunctionComponent<IProps> = (props: IProps) => {
   const { video } = props;
   const videoId = video ? video.id.videoId : "";
   const videoTitle = video ? video.snippet.title : "";

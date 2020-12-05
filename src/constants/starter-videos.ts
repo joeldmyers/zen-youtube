@@ -1,4 +1,6 @@
-const starterVideos = [
+import { Video } from "../../types/interfaces";
+
+const starterVideos: Video[] = [
   {
     id: {
       videoId: "DpV4k3Edr-I",
