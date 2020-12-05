@@ -6,10 +6,7 @@ interface IProps {
   onVideoSelect: (selectedVideo: Video) => void;
 }
 
-const VideoListItem: FunctionComponent<any> = ({
-  video,
-  onVideoSelect,
-}: IProps) => {
+const VideoListItem: FunctionComponent<IProps> = ({ video, onVideoSelect }: IProps) => {
   const videoTitle = video.snippet.title;
   const videoImageUrl = video.snippet.thumbnails.default.url;
   return (

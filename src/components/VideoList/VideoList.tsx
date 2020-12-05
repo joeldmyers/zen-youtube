@@ -7,18 +7,9 @@ interface IProps {
   onVideoSelect: (selectedVideo: Video) => void;
 }
 
-const VideoList: FunctionComponent<any> = ({
-  videos,
-  onVideoSelect,
-}: IProps) => {
+const VideoList: FunctionComponent<IProps> = ({ videos, onVideoSelect }: IProps) => {
   const videoItems = videos.map((video) => {
-    return (
-      <VideoListItem
-        video={video}
-        key={video.etag}
-        onVideoSelect={onVideoSelect}
-      />
-    );
+    return <VideoListItem video={video} key={video.etag} onVideoSelect={onVideoSelect} />;
   });
 
   return <ul className="col-md-4 list-group">{videoItems}</ul>;

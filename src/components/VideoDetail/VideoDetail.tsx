@@ -6,7 +6,7 @@ interface IProps {
   youtubeErrorMessage: string;
 }
 
-const VideoDetail: FunctionComponent<any> = ({ video, youtubeErrorMessage }: IProps) => {
+const VideoDetail: FunctionComponent<IProps> = ({ video, youtubeErrorMessage }: IProps) => {
   const videoId = video ? video.id.videoId : "";
   const videoTitle = video ? video.snippet.title : "";
   const videoDescription = video ? video.snippet.description : "";

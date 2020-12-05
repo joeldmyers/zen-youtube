@@ -13,7 +13,7 @@ import { Video } from "../../types/interfaces";
 
 const YOUTUBE_API_KEY = config.youtubeAPIKey;
 
-const App: FunctionComponent<any> = () => {
+const App: FunctionComponent = () => {
   const [videos, setVideos] = useState(starterVideos);
   const [selectedVideo, setSelectedVideo] = useState(starterVideos[0]);
   const [youtubeErrorMessage, setYoutubeErrorMessage] = useState("");

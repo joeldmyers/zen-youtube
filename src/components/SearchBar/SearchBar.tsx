@@ -4,7 +4,7 @@ interface IProps {
   onSearchTermChange: (term: string) => void;
 }
 
-const SearchBar: FunctionComponent<any> = (props: IProps) => {
+const SearchBar: FunctionComponent<IProps> = (props: IProps) => {
   const [searchTerm, setSearchTerm] = useState("Search videos...");
 
   const onInputChange = (term: string) => {
