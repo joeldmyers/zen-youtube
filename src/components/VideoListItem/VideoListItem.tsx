@@ -1,6 +1,27 @@
 import React from "react";
 
-const VideoListItem = ({ video, onVideoSelect }) => {
+interface Video {
+  id: {
+    videoId: string;
+  };
+  etag: number;
+  snippet: {
+    title: string;
+    description: string;
+    thumbnails: {
+      default: {
+        url: string;
+      };
+    };
+  };
+}
+
+interface IProps {
+  video: Video;
+  onVideoSelect: (selectedVideo: Video) => void;
+}
+
+const VideoListItem = ({ video, onVideoSelect }: IProps) => {
   const videoTitle = video.snippet.title;
   const videoImageUrl = video.snippet.thumbnails.default.url;
   return (

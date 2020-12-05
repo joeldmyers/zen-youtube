@@ -8,8 +8,10 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import VideoList from "../components/VideoList/VideoList";
 import VideoDetail from "../components/VideoDetail/VideoDetail";
 import starterVideos from "../constants/starter-videos";
+import config from "../../config";
 
-const YOUTUBE_API_KEY = "AIzaSyB39Kj1Tgnus7mYqG_wpj9x6iD3XlldD60";
+const YOUTUBE_API_KEY = config.youtubeAPIKey;
+
 const App = () => {
   const [videos, setVideos] = useState(starterVideos);
   const [selectedVideo, setSelectedVideo] = useState(null);

@@ -1,6 +1,27 @@
 import React from "react";
 
-const VideoDetail = ({ video }) => {
+interface Video {
+  id: {
+    videoId: string;
+  };
+  etag: number;
+  snippet: {
+    title: string;
+    description: string;
+    thumbnails: {
+      default: {
+        url: string;
+      };
+    };
+  };
+}
+
+interface IProps {
+  video: Video;
+}
+
+const VideoDetail: React.FC<IProps> = (props: IProps) => {
+  const { video } = props;
   const videoId = video ? video.id.videoId : "";
   const videoTitle = video ? video.snippet.title : "";
   const videoDescription = video ? video.snippet.description : "";
