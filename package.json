@@ -45,12 +45,14 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "babel-loader": "^8.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "ts-loader": "^8.0.11",
-    "youtube-api-search": "0.0.5"
+    "youtube-api-search": "0.0.5",
+    "youtube-api-v3-search": "^1.2.1"
   }
 }

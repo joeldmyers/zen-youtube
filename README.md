@@ -1,14 +1,6 @@
-# React / Redux Boilerplate Setup 2020
+# Zen Youtube
 
-## Introduction
-
-The purpose of this repo is to create a baseline setup for React + Redux + Webpack.
-
-Obviously there are other alternatives - Next.js, create-react-app, etc.
-
-This is a baseline starting point with React and Redux to create new projects quickly with only the core configuration I want to have generally.
-
-Below are some notes on setup details.
+The idea of this is to have a Youtube search page without the annoying related videos. Unfortunately, Youtube recently started putting very strict quotas on its search APIs, so this will start to hit errors after a bit and stop working.
 
 ### Key features:
 
@@ -17,6 +9,7 @@ Below are some notes on setup details.
 - Webpack
 - Babel
 - node-sass
+- Typescript
 
 #### Notes on Babel
 

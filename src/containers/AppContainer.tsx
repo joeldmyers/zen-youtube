@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
-import YTSearch from "youtube-api-search";
 import { debounce } from "lodash";
+import axios from "axios";
 import "./App.scss";
 import { Provider } from "react-redux";
 import store from "../store";
@@ -16,12 +16,28 @@ const YOUTUBE_API_KEY = config.youtubeAPIKey;
 const App: FunctionComponent<any> = () => {
   const [videos, setVideos] = useState(starterVideos);
   const [selectedVideo, setSelectedVideo] = useState(starterVideos[0]);
+  const [youtubeErrorMessage, setYoutubeErrorMessage] = useState("");
 
   const searchYoutubeVideos = (term: string) => {
-    YTSearch({ key: YOUTUBE_API_KEY, term: term }, (videoResults: Video[]) => {
-      setVideos(videoResults);
-      setSelectedVideo(videos[0]);
-    });
+    setYoutubeErrorMessage("");
+    const youtubeRootUrl = "https://www.googleapis.com/youtube/v3/search";
+
+    const params = {
+      part: "snippet",
+      key: YOUTUBE_API_KEY,
+      q: term,
+      type: "video",
+    };
+
+    axios
+      .get(youtubeRootUrl, { params })
+      .then((youtubeResponse: any) => {
+        setVideos(youtubeResponse.data.items);
+        setSelectedVideo(youtubeResponse.data.items[0]);
+      })
+      .catch((error) => {
+        setYoutubeErrorMessage("Sorry! You hit Youtube's annoying new API daily quota - try again tomorrow");
+      });
   };
 
   const debouncedSearch = debounce((term) => {
@@ -35,13 +51,8 @@ const App: FunctionComponent<any> = () => {
           <h3>Zen Youtube</h3>
           <p>Search without distractions...</p>
           <SearchBar onSearchTermChange={searchYoutubeVideos} />
-          <VideoDetail video={selectedVideo} />
-          <VideoList
-            onVideoSelect={(selectedVideo: Video) =>
-              setSelectedVideo(selectedVideo)
-            }
-            videos={videos}
-          />
+          <VideoDetail video={selectedVideo} youtubeErrorMessage={youtubeErrorMessage} />
+          <VideoList onVideoSelect={(selectedVideo: Video) => setSelectedVideo(selectedVideo)} videos={videos} />
         </div>
       </main>
     </Provider>

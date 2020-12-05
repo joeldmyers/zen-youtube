@@ -3,10 +3,10 @@ import { Video } from "../../../types/interfaces";
 
 interface IProps {
   video: Video;
+  youtubeErrorMessage: string;
 }
 
-const VideoDetail: FunctionComponent<any> = (props: IProps) => {
-  const { video } = props;
+const VideoDetail: FunctionComponent<any> = ({ video, youtubeErrorMessage }: IProps) => {
   const videoId = video ? video.id.videoId : "";
   const videoTitle = video ? video.snippet.title : "";
   const videoDescription = video ? video.snippet.description : "";
@@ -23,6 +23,7 @@ const VideoDetail: FunctionComponent<any> = (props: IProps) => {
         </div>
         <div>
           <p>{videoDescription}</p>
+          {youtubeErrorMessage && <p className="error-msg">{youtubeErrorMessage}</p>}
         </div>
       </div>
     </div>
