@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, FunctionComponent } from "react";
 
 interface IProps {
   onSearchTermChange: (term: string) => void;
 }
 
-const SearchBar = (props: IProps) => {
+const SearchBar: FunctionComponent<any> = (props: IProps) => {
   const [searchTerm, setSearchTerm] = useState("Search videos...");
 
   const onInputChange = (term: string) => {

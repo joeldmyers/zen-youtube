@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Video } from "../../../types/interfaces";
 
 interface IProps {
@@ -6,7 +6,10 @@ interface IProps {
   onVideoSelect: (selectedVideo: Video) => void;
 }
 
-const VideoListItem = ({ video, onVideoSelect }: IProps) => {
+const VideoListItem: FunctionComponent<any> = ({
+  video,
+  onVideoSelect,
+}: IProps) => {
   const videoTitle = video.snippet.title;
   const videoImageUrl = video.snippet.thumbnails.default.url;
   return (

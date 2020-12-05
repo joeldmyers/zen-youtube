@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import YTSearch from "youtube-api-search";
 import { debounce } from "lodash";
 import "./App.scss";
@@ -9,11 +9,11 @@ import VideoList from "../components/VideoList/VideoList";
 import VideoDetail from "../components/VideoDetail/VideoDetail";
 import starterVideos from "../constants/starter-videos";
 import config from "../../config";
-import { Video } from "../../typings/interfaces";
+import { Video } from "../../types/interfaces";
 
 const YOUTUBE_API_KEY = config.youtubeAPIKey;
 
-const App = () => {
+const App: FunctionComponent<any> = () => {
   const [videos, setVideos] = useState(starterVideos);
   const [selectedVideo, setSelectedVideo] = useState(starterVideos[0]);
 
@@ -37,7 +37,9 @@ const App = () => {
           <SearchBar onSearchTermChange={searchYoutubeVideos} />
           <VideoDetail video={selectedVideo} />
           <VideoList
-            onVideoSelect={(selectedVideo) => setSelectedVideo(selectedVideo)}
+            onVideoSelect={(selectedVideo: Video) =>
+              setSelectedVideo(selectedVideo)
+            }
             videos={videos}
           />
         </div>

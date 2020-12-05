@@ -1,4 +1,4 @@
-import { Video } from "../../typings/interfaces";
+import { Video } from "../../types/interfaces";
 
 const starterVideos: Video[] = [
   {

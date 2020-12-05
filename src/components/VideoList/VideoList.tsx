@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import VideoListItem from "../VideoListItem/VideoListItem";
 import { Video } from "../../../types/interfaces";
 
@@ -7,7 +7,10 @@ interface IProps {
   onVideoSelect: (selectedVideo: Video) => void;
 }
 
-const VideoList = ({ videos, onVideoSelect }: IProps) => {
+const VideoList: FunctionComponent<any> = ({
+  videos,
+  onVideoSelect,
+}: IProps) => {
   const videoItems = videos.map((video) => {
     return (
       <VideoListItem

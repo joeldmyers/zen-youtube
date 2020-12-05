@@ -5,7 +5,7 @@ interface IProps {
   video: Video;
 }
 
-const VideoDetail: FunctionComponent<IProps> = (props: IProps) => {
+const VideoDetail: FunctionComponent<any> = (props: IProps) => {
   const { video } = props;
   const videoId = video ? video.id.videoId : "";
   const videoTitle = video ? video.snippet.title : "";
