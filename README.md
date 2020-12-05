@@ -31,3 +31,5 @@ Webpack does the work of bundling, code-splitting, tree-shaking, etc. To set up,
 Using node v12.16.2 (npm v6.14.4), type `npm install`.
 
 To run dev server type `npm start`.
+
+The server runs on localhost:3000.
