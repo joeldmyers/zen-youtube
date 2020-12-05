@@ -1,13 +1,12 @@
 import React, { FunctionComponent } from "react";
 import VideoListItem from "../VideoListItem/VideoListItem";
-import { Video } from "../../../types/interfaces";
 
 interface IProps {
   videos: Video[];
   onVideoSelect: (selectedVideo: Video) => void;
 }
 
-const VideoList: FunctionComponent<IProps> = ({ videos, onVideoSelect }: IProps) => {
+const VideoList: FunctionComponent<IProps> = ({ videos, onVideoSelect }) => {
   const videoItems = videos.map((video) => {
     return <VideoListItem video={video} key={video.etag} onVideoSelect={onVideoSelect} />;
   });

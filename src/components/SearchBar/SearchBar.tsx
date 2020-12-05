@@ -4,7 +4,7 @@ interface IProps {
   onSearchTermChange: (term: string) => void;
 }
 
-const SearchBar: FunctionComponent<IProps> = (props: IProps) => {
+const SearchBar: FunctionComponent<IProps> = (props) => {
   const [searchTerm, setSearchTerm] = useState("Search videos...");
 
   const onInputChange = (term: string) => {
@@ -30,7 +30,7 @@ const SearchBar: FunctionComponent<IProps> = (props: IProps) => {
         value={searchTerm}
         onFocus={() => onClickSearchBar(searchTerm)}
         onBlur={() => onBlurSearchBar(searchTerm)}
-        onChange={(event) => onInputChange(event.target.value)}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => onInputChange(event.target.value)}
       />
     </div>
   );

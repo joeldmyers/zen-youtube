@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { Video } from "../../../types/interfaces";
 
 interface IProps {
   video: Video;
   youtubeErrorMessage: string;
 }
 
-const VideoDetail: FunctionComponent<IProps> = ({ video, youtubeErrorMessage }: IProps) => {
+const VideoDetail: FunctionComponent<IProps> = ({ video, youtubeErrorMessage }) => {
   const videoId = video ? video.id.videoId : "";
   const videoTitle = video ? video.snippet.title : "";
   const videoDescription = video ? video.snippet.description : "";
