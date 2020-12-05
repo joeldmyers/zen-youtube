@@ -9,15 +9,16 @@ import VideoList from "../components/VideoList/VideoList";
 import VideoDetail from "../components/VideoDetail/VideoDetail";
 import starterVideos from "../constants/starter-videos";
 import config from "../../config";
+import { Video } from "../../typings/interfaces";
 
 const YOUTUBE_API_KEY = config.youtubeAPIKey;
 
 const App = () => {
   const [videos, setVideos] = useState(starterVideos);
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(starterVideos[0]);
 
-  const searchYoutubeVideos = (term) => {
-    YTSearch({ key: YOUTUBE_API_KEY, term: term }, (videoResults) => {
+  const searchYoutubeVideos = (term: string) => {
+    YTSearch({ key: YOUTUBE_API_KEY, term: term }, (videoResults: Video[]) => {
       setVideos(videoResults);
       setSelectedVideo(videos[0]);
     });

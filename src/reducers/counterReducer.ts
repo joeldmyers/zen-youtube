@@ -2,7 +2,14 @@ const initialState = {
   count: 0,
 };
 
-export default function (state = initialState, action) {
+interface IAction {
+  type: string;
+  payload: {
+    incrementAmount: number;
+  };
+}
+
+export default function (state = initialState, action: IAction) {
   switch (action.type) {
     case "UPDATE_COUNTER_AMOUNT":
       const { incrementAmount } = action.payload;
