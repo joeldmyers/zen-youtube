@@ -8,8 +8,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import VideoList from "../components/VideoList/VideoList";
 import VideoDetail from "../components/VideoDetail/VideoDetail";
 
-const YOUTUBE_API_KEY = "AIzaSyAJhfL9mmBo6qs3QCAf4ZjGrX07XIUFu00";
-
+const YOUTUBE_API_KEY = "AIzaSyB39Kj1Tgnus7mYqG_wpj9x6iD3XlldD60";
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -20,6 +19,10 @@ const App = () => {
       setSelectedVideo(videos[0]);
     });
   };
+
+  const debouncedSearch = debounce((term) => {
+    searchYoutubeVideos(term);
+  }, 500);
 
   return (
     <Provider store={store}>
