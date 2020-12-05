@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 
-const SearchBar = (props) => {
+interface IProps {
+  onSearchTermChange: (term: string) => void;
+}
+
+const SearchBar = (props: IProps) => {
   const [searchTerm, setSearchTerm] = useState("Search videos...");
 
-  const onInputChange = (term) => {
+  const onInputChange = (term: string) => {
     setSearchTerm(term);
     props.onSearchTermChange(term);
   };
 
-  const onClickSearchBar = (searchTerm) => {
+  const onClickSearchBar = (searchTerm: string) => {
     if (searchTerm === "Search videos...") {
       setSearchTerm("");
     }
   };
 
-  const onBlurSearchBar = (searchTerm) => {
+  const onBlurSearchBar = (searchTerm: string) => {
     if (searchTerm === "") {
       setSearchTerm("");
     }
